@@ -30,6 +30,8 @@ module.exports = {
   },
   rules: {
     'react/jsx-filename-extension': 0,
+    'import/no-extraneous-dependencies': [2, { devDependencies: ['ReactotronConfig.js'] }],
+    'import/prefer-default-export': 0,
   },
   settings: {
     react: {
