@@ -3,9 +3,7 @@
  */
 
 import * as React from 'react';
-import {
-  Button, FlatList, Text, View,
-} from 'react-native';
+import { FlatList, Text, View } from 'react-native';
 import { Link, useHistory } from 'react-router-native';
 import routes from '../../routes/routes';
 
@@ -15,18 +13,11 @@ type SectionListProps = {
 
 export function SectionList(props: SectionListProps): React.Node {
   const { level } = props;
-  const { goBack, location: { pathname } } = useHistory();
+  const { location: { pathname } } = useHistory();
   const title = routes.find((route) => route.path === pathname)?.title;
-  const canGoBack = pathname !== '/';
 
   return (
     <View>
-      {canGoBack && (
-        <Button
-          title="Atrás"
-          onPress={goBack}
-        />
-      )}
       <FlatList
         ListHeaderComponent={<Text>{title}</Text>}
         data={routes.filter((route) => route.level === level)}

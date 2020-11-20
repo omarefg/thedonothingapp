@@ -4,11 +4,14 @@
 
 import * as React from 'react';
 import { SectionList } from '../../../components';
+import { HeaderProvider } from '../../../providers';
 
 export function AnimationsAnimatingProperties(): React.Node {
   return (
-    <SectionList
-      level={3}
-    />
+    <HeaderProvider>
+      <SectionList
+        level={3}
+      />
+    </HeaderProvider>
   );
 }

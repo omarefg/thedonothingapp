@@ -4,11 +4,14 @@
 
 import * as React from 'react';
 import { Text, View } from 'react-native';
+import { HeaderProvider } from '../../../../providers';
 
 export function AnimatingPropertiesOpacity(): React.Node {
   return (
-    <View>
-      <Text>AnimatingPropertiesOpacity</Text>
-    </View>
+    <HeaderProvider>
+      <View>
+        <Text>AnimatingPropertiesOpacity</Text>
+      </View>
+    </HeaderProvider>
   );
 }
