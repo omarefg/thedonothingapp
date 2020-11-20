@@ -10,7 +10,7 @@ import routes from './routes/routes';
 
 const App: () => React$Node = () => (
   <NativeRouter>
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1 }}>
       {routes.map((route) => (
         <Route
           key={route.id}

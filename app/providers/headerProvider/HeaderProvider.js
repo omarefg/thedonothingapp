@@ -3,7 +3,7 @@
  */
 
 import * as React from 'react';
-import { Button, View } from 'react-native';
+import { Button } from 'react-native';
 import { useHistory } from 'react-router-native';
 
 type HeaderProviderProps = {
@@ -16,7 +16,7 @@ export function HeaderProvider(props: HeaderProviderProps): React.Node {
   const canGoBack = pathname !== '/';
 
   return (
-    <View>
+    <>
       {canGoBack && (
         <Button
           title="Atrás"
@@ -24,6 +24,6 @@ export function HeaderProvider(props: HeaderProviderProps): React.Node {
         />
       )}
       {children}
-    </View>
+    </>
   );
 }
