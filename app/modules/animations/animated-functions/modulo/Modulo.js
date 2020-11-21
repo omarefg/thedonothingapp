@@ -8,7 +8,6 @@ import {
   StyleSheet,
   Pressable,
   View,
-  Easing,
 } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -22,28 +21,31 @@ const styles = StyleSheet.create({
     height: 150,
     backgroundColor: 'tomato',
   },
-
 });
 
-export function AnimatedValueFunctionsEasing(): React$Node {
+export function AnimatedFunctionsModulo(): React$Node {
   const animation = new Animated.Value(0);
 
   const startAnimation = () => {
-    Animated.timing(animation, {
-      toValue: 100,
-      duration: 500,
-      //   easing: Easing.back(5),
-      easing: Easing.bounce,
-      //   easing: Easing.elastic(3),
-      //   easing: Easing.bezier(0.06, 1, 0.86, 0.23),
-      useNativeDriver: true,
-    }).start(() => {
-      animation.setValue(0);
-    });
+    Animated.parallel([
+      Animated.timing(animation, {
+        toValue: 12,
+        duration: 3500,
+        useNativeDriver: false,
+      }),
+    ]).start();
   };
 
+  const randomValue = 3;
+  const newAnimation = Animated.modulo(animation, randomValue);
+
+  const interpolated = newAnimation.interpolate({
+    inputRange: [0, 3],
+    outputRange: ['0deg', '270deg'],
+  });
+
   const animatedStyles = {
-    transform: [{ translateY: animation }],
+    transform: [{ rotate: interpolated }],
   };
 
   return (

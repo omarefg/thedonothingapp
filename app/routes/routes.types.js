@@ -41,6 +41,30 @@ export type AnimatingPropertiesWidthHeightPercentageTitleType = 'Width Height Pe
 export type AnimatedValueFunctionsEasingPathType = '/animations/animated-value-functions/easing'
 export type AnimatedValueFunctionsEasingTitleType = 'Easing'
 
+export type AnimationsAnimatedFunctionsPathType = '/animations/animated-functions'
+export type AnimationsAnimatedFunctionsTitleType = 'Animated Functions'
+
+export type AnimatedFunctionsAddPathType = '/animations/animated-functions/add'
+export type AnimatedFunctionsAddTitleType = 'Add'
+
+export type AnimatedFunctionsDecayPathType = '/animations/animated-functions/decay'
+export type AnimatedFunctionsDecayTitleType = 'Decay'
+
+export type AnimatedFunctionsDividePathType = '/animations/animated-functions/divide'
+export type AnimatedFunctionsDivideTitleType = 'Divide'
+
+export type AnimatedFunctionsEventPathType = '/animations/animated-functions/event'
+export type AnimatedFunctionsEventTitleType = 'Event'
+
+export type AnimatedFunctionsModuloPathType = '/animations/animated-functions/modulo'
+export type AnimatedFunctionsModuloTitleType = 'Modulo'
+
+export type AnimatedFunctionsMultiplyPathType = '/animations/animated-functions/multiply'
+export type AnimatedFunctionsMultiplyTitleType = 'Multiply'
+
+export type AnimatedFunctionsSpringPathType = '/animations/animated-functions/spring'
+export type AnimatedFunctionsSpringTitleType = 'Spring'
+
 type PathType =
 | ModulesPathType
 | ModuleAnimationsPathType
@@ -55,6 +79,14 @@ type PathType =
 | AnimatingPropertiesWidthHeightPercentagePathType
 | AnimationsAnimatedValueFunctionsPathType
 | AnimatedValueFunctionsEasingPathType
+| AnimationsAnimatedFunctionsPathType
+| AnimatedFunctionsAddPathType
+| AnimatedFunctionsDecayPathType
+| AnimatedFunctionsDividePathType
+| AnimatedFunctionsEventPathType
+| AnimatedFunctionsModuloPathType
+| AnimatedFunctionsMultiplyPathType
+| AnimatedFunctionsSpringPathType
 
 type TitleType =
 | ModulesTitleType
@@ -70,6 +102,14 @@ type TitleType =
 | AnimatingPropertiesWidthHeightPercentageTitleType
 | AnimationsAnimatedValueFunctionsTitleType
 | AnimatedValueFunctionsEasingTitleType
+| AnimationsAnimatedFunctionsTitleType
+| AnimatedFunctionsAddTitleType
+| AnimatedFunctionsDecayTitleType
+| AnimatedFunctionsDivideTitleType
+| AnimatedFunctionsEventTitleType
+| AnimatedFunctionsModuloTitleType
+| AnimatedFunctionsMultiplyTitleType
+| AnimatedFunctionsSpringTitleType
 
 export type RouteItemType = {
   path: PathType,

@@ -8,7 +8,6 @@ import {
   StyleSheet,
   Pressable,
   View,
-  Easing,
 } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -18,32 +17,35 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   box: {
-    width: 150,
-    height: 150,
+    width: 50,
+    height: 50,
     backgroundColor: 'tomato',
   },
 
 });
 
-export function AnimatedValueFunctionsEasing(): React$Node {
-  const animation = new Animated.Value(0);
+export function AnimatedFunctionsSpring(): React$Node {
+  const animation = new Animated.Value(1);
 
   const startAnimation = () => {
-    Animated.timing(animation, {
-      toValue: 100,
-      duration: 500,
-      //   easing: Easing.back(5),
-      easing: Easing.bounce,
-      //   easing: Easing.elastic(3),
-      //   easing: Easing.bezier(0.06, 1, 0.86, 0.23),
+    Animated.spring(animation, {
+      toValue: 2,
+      friction: 2,
+      tension: 160,
       useNativeDriver: true,
     }).start(() => {
-      animation.setValue(0);
+      Animated.timing(animation, {
+        toValue: 1,
+        duration: 100,
+        useNativeDriver: true,
+      }).start();
     });
   };
 
   const animatedStyles = {
-    transform: [{ translateY: animation }],
+    transform: [
+      { scale: animation },
+    ],
   };
 
   return (
