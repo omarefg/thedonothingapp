@@ -38,6 +38,9 @@ export type AnimatingPropertiesRotationTitleType = 'Rotation'
 export type AnimatingPropertiesWidthHeightPercentagePathType = '/animations/animating-properties/width-height-percentage'
 export type AnimatingPropertiesWidthHeightPercentageTitleType = 'Width Height Percentage'
 
+export type AnimatedValueFunctionsEasingPathType = '/animations/animated-value-functions/easing'
+export type AnimatedValueFunctionsEasingTitleType = 'Easing'
+
 type PathType =
 | ModulesPathType
 | ModuleAnimationsPathType
@@ -51,6 +54,7 @@ type PathType =
 | AnimatingPropertiesRotationPathType
 | AnimatingPropertiesWidthHeightPercentagePathType
 | AnimationsAnimatedValueFunctionsPathType
+| AnimatedValueFunctionsEasingPathType
 
 type TitleType =
 | ModulesTitleType
@@ -65,6 +69,7 @@ type TitleType =
 | AnimatingPropertiesRotationTitleType
 | AnimatingPropertiesWidthHeightPercentageTitleType
 | AnimationsAnimatedValueFunctionsTitleType
+| AnimatedValueFunctionsEasingTitleType
 
 export type RouteItemType = {
   path: PathType,

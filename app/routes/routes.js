@@ -28,6 +28,8 @@ import type {
   AnimatingPropertiesWidthHeightPercentageTitleType,
   AnimationsAnimatedValueFunctionsPathType,
   AnimationsAnimatedValueFunctionsTitleType,
+  AnimatedValueFunctionsEasingPathType,
+  AnimatedValueFunctionsEasingTitleType,
 } from './routes.types';
 import {
   ModuleAnimations,
@@ -42,6 +44,7 @@ import {
   AnimatingPropertiesWidthHeightPercentage,
   AnimatingPropertiesWidthHeight,
   AnimationsAnimatedValueFunctions,
+  AnimatedValueFunctionsEasing,
 } from '../modules';
 
 export const modulesPath = (): ModulesPathType => '/';
@@ -79,6 +82,9 @@ export const ANIMATING_PROPERTIES_ROTATION_TITLE: AnimatingPropertiesRotationTit
 
 export const animatingPropertiesWidthHeightPercentagePath = (): AnimatingPropertiesWidthHeightPercentagePathType => '/animations/animating-properties/width-height-percentage';
 export const ANIMATING_PROPERTIES_WIDTH_HEIGHT_PERCENTAGE_TITLE: AnimatingPropertiesWidthHeightPercentageTitleType = 'Width Height Percentage';
+
+export const animatedValueFunctionsEasingPath = (): AnimatedValueFunctionsEasingPathType => '/animations/animated-value-functions/easing';
+export const ANIMATED_VALUE_FUNCTIONS_EASING_TITLE: AnimatedValueFunctionsEasingTitleType = 'Easing';
 
 const routes: RouterType = [
   {
@@ -176,6 +182,14 @@ const routes: RouterType = [
     component: AnimationsAnimatedValueFunctions,
     exact: true,
     id: '11',
+  },
+  {
+    path: animatedValueFunctionsEasingPath(),
+    title: ANIMATED_VALUE_FUNCTIONS_EASING_TITLE,
+    father: '11',
+    component: AnimatedValueFunctionsEasing,
+    exact: true,
+    id: '12',
   },
 ];
 

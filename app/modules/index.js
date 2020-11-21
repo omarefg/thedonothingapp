@@ -10,3 +10,4 @@ export * from './animations/animating-properties/rotation/Rotation';
 export * from './animations/animating-properties/widthHeight/WidthHeight';
 export * from './animations/animating-properties/widthHeightPercentage/WidthHeightPercentage';
 export * from './animations/animated-value-functions/AnimatedValueFunctions';
+export * from './animations/animated-value-functions/easing/Easing';
