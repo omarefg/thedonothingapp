@@ -28,20 +28,39 @@ export function InterpolationExtrapolate(): React$Node {
 
   const startAnimation = () => {
     Animated.timing(animation, {
-      toValue: 0,
-      duration: 350,
-      useNativeDriver: true,
+      // toValue: 3,
+      toValue: 2,
+      duration: 1500,
+      useNativeDriver: false,
     }).start(() => {
       Animated.timing(animation, {
+        // toValue: 0,
         toValue: 1,
-        duration: 500,
-        useNativeDriver: true,
+        duration: 300,
+        useNativeDriver: false,
       }).start();
+
+      // animation.setValue(5);
     });
   };
 
+  // extend: Default
+  // clamp: Whatever the end values we've defined are the values they will stay at,
+  // never go beyond
+  // identity: Takes on the value of the Animated.Value that you're passing in
+  // and ignores inputRange/outputRange
+
+  const scaleInterpolate = animation.interpolate({
+    inputRange: [1, 2],
+    outputRange: [1, 2],
+    extrapolate: 'identity',
+    // extrapolate: 'clamp',
+    // extrapolateLeft: 'clamp',
+    // extrapolateRight: 'clamp',
+  });
+
   const animatedStyles = {
-    opacity: animation,
+    transform: [{ scale: scaleInterpolate }],
   };
 
   return (

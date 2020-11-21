@@ -7,7 +7,6 @@ import {
   Animated,
   StyleSheet,
   Pressable,
-  View,
 } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -24,33 +23,39 @@ const styles = StyleSheet.create({
 });
 
 export function InterpolationColorAndBackgroundColor(): React$Node {
-  const animation = new Animated.Value(1);
+  const animation = new Animated.Value(0);
 
   const startAnimation = () => {
     Animated.timing(animation, {
-      toValue: 0,
-      duration: 350,
-      useNativeDriver: true,
+      toValue: 2,
+      duration: 1500,
+      useNativeDriver: false,
     }).start(() => {
-      Animated.timing(animation, {
-        toValue: 1,
-        duration: 500,
-        useNativeDriver: true,
-      }).start();
+      animation.setValue(0);
     });
   };
 
+  const colorInterpolate = animation.interpolate({
+    inputRange: [0, 1, 2],
+    outputRange: ['rgb(71,255,99)', 'rgb(255,99,71)', 'rgb(99,71,255)'],
+  });
+
+  const bgStyle = {
+    backgroundColor: animation.interpolate({
+      inputRange: [0, 2],
+      outputRange: ['rgba(255,99,71, 1)', 'rgba(255,99,71, 0)'],
+    }),
+  };
+
   const animatedStyles = {
-    opacity: animation,
+    backgroundColor: colorInterpolate,
   };
 
   return (
-    <View style={styles.container}>
+    <Animated.View style={[styles.container, bgStyle]}>
       <Pressable onPress={startAnimation}>
-        <Animated.View
-          style={[styles.box, animatedStyles]}
-        />
+        <Animated.View style={[styles.box, animatedStyles]} />
       </Pressable>
-    </View>
+    </Animated.View>
   );
 }
