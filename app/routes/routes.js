@@ -14,6 +14,8 @@ import type {
   ModulesTitleType,
   AnimatingPropertiesTranslatePositionPathType,
   AnimatingPropertiesTranslatePositionTitleType,
+  AnimatingPropertiesScalePathType,
+  AnimatingPropertiesScaleTitleType,
 } from './routes.types';
 import {
   ModuleAnimations,
@@ -21,6 +23,7 @@ import {
   AnimatingPropertiesOpacity,
   Modules,
   AnimatingPropertiesTranslatePosition,
+  AnimatingPropertiesScale,
 } from '../modules';
 
 // Level 0
@@ -40,6 +43,8 @@ export const animatingPropertiesOpacityPath = (): AnimatingPropertiesOpacityPath
 export const ANIMATING_PROPERTIES_OPACITY_TITLE: AnimatingPropertiesOpacityTitleType = 'Opacity';
 export const animatingPropertiesTranslatePositionPath = (): AnimatingPropertiesTranslatePositionPathType => '/animations/animating-properties/translate-position';
 export const ANIMATING_PROPERTIES_TRANSLATE_POSITION_TITLE: AnimatingPropertiesTranslatePositionTitleType = 'Translate Position';
+export const animatingPropertiesScalePath = (): AnimatingPropertiesScalePathType => '/animations/animating-properties/scale';
+export const ANIMATING_PROPERTIES_SCALE_TITLE: AnimatingPropertiesScaleTitleType = 'Scale';
 
 const routes: RouterType = [
   {
@@ -81,6 +86,14 @@ const routes: RouterType = [
     component: AnimatingPropertiesTranslatePosition,
     exact: true,
     id: '4',
+  },
+  {
+    path: animatingPropertiesScalePath(),
+    title: ANIMATING_PROPERTIES_SCALE_TITLE,
+    level: 3,
+    component: AnimatingPropertiesScale,
+    exact: true,
+    id: '5',
   },
 ];
 

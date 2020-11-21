@@ -19,6 +19,8 @@ export type AnimatingPropertiesOpacityPathType = '/animations/animating-properti
 export type AnimatingPropertiesOpacityTitleType = 'Opacity'
 export type AnimatingPropertiesTranslatePositionPathType = '/animations/animating-properties/translate-position'
 export type AnimatingPropertiesTranslatePositionTitleType = 'Translate Position'
+export type AnimatingPropertiesScalePathType = '/animations/animating-properties/scale'
+export type AnimatingPropertiesScaleTitleType = 'Scale'
 
 type PathType =
 | ModulesPathType
@@ -26,6 +28,7 @@ type PathType =
 | AnimationsAnimatingPropertiesPathType
 | AnimatingPropertiesOpacityPathType
 | AnimatingPropertiesTranslatePositionPathType
+| AnimatingPropertiesScalePathType
 
 type TitleType =
 | ModulesTitleType
@@ -33,6 +36,7 @@ type TitleType =
 | AnimationsAnimatingPropertiesTitleType
 | AnimatingPropertiesOpacityTitleType
 | AnimatingPropertiesTranslatePositionTitleType
+| AnimatingPropertiesScaleTitleType
 
 export type RouteItemType = {
   path: PathType,
