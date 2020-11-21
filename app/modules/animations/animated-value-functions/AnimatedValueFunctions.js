@@ -6,13 +6,13 @@ import React from 'react';
 import { SectionList } from '../../../components';
 import type { RouterType } from '../../../routes/routes.types';
 
-type AnimationsAnimatingPropertiesProps = {
+type AnimatedValueFunctionsProps = {
   routes: RouterType,
   routeId: string
 }
 
-export function AnimationsAnimatingProperties(
-  props: AnimationsAnimatingPropertiesProps,
+export function AnimationsAnimatedValueFunctions(
+  props: AnimatedValueFunctionsProps,
 ): React$Node {
   const { routes, routeId } = props;
 

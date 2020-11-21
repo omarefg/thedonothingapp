@@ -24,7 +24,9 @@ function App(): React$Node {
 
               return (
                 <HeaderProvider>
-                  <EnhancedComponent />
+                  <EnhancedComponent
+                    routeId={route.id}
+                  />
                 </HeaderProvider>
               );
             }}

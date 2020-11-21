@@ -2,19 +2,18 @@
  * @flow
  */
 
-// Level 0
 export type ModulesPathType = '/'
 export type ModulesTitleType = 'Modules'
 
-// Level 1
 export type ModuleAnimationsPathType = '/animations'
 export type ModulesAnimationTitleType = 'Animations'
 
-// Level 2
 export type AnimationsAnimatingPropertiesPathType = '/animations/animating-properties'
 export type AnimationsAnimatingPropertiesTitleType = 'Animating Properties'
 
-// Level 3
+export type AnimationsAnimatedValueFunctionsPathType = '/animations/animated-value-functions'
+export type AnimationsAnimatedValueFunctionsTitleType = 'Animated Value Functions'
+
 export type AnimatingPropertiesOpacityPathType = '/animations/animating-properties/opacity'
 export type AnimatingPropertiesOpacityTitleType = 'Opacity'
 
@@ -51,6 +50,7 @@ type PathType =
 | AnimatingPropertiesColorAndBackgroundColorPathType
 | AnimatingPropertiesRotationPathType
 | AnimatingPropertiesWidthHeightPercentagePathType
+| AnimationsAnimatedValueFunctionsPathType
 
 type TitleType =
 | ModulesTitleType
@@ -64,12 +64,13 @@ type TitleType =
 | AnimatingPropertiesColorAndBackgroundColorTitleType
 | AnimatingPropertiesRotationTitleType
 | AnimatingPropertiesWidthHeightPercentageTitleType
+| AnimationsAnimatedValueFunctionsTitleType
 
 export type RouteItemType = {
   path: PathType,
   title: TitleType,
   component: React$Node,
-  level: number,
+  father: string | null,
   exact: boolean,
   id: string
 }

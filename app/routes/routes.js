@@ -26,6 +26,8 @@ import type {
   AnimatingPropertiesRotationTitleType,
   AnimatingPropertiesWidthHeightPercentagePathType,
   AnimatingPropertiesWidthHeightPercentageTitleType,
+  AnimationsAnimatedValueFunctionsPathType,
+  AnimationsAnimatedValueFunctionsTitleType,
 } from './routes.types';
 import {
   ModuleAnimations,
@@ -39,21 +41,21 @@ import {
   AnimatingPropertiesRotation,
   AnimatingPropertiesWidthHeightPercentage,
   AnimatingPropertiesWidthHeight,
+  AnimationsAnimatedValueFunctions,
 } from '../modules';
 
-// Level 0
 export const modulesPath = (): ModulesPathType => '/';
 export const MODULES_TITLE: ModulesTitleType = 'Modules';
 
-// Level 1
 export const moduleAnimationsPath = (): ModuleAnimationsPathType => '/animations';
 export const MODULE_ANIMATIONS_TITLE: ModulesAnimationTitleType = 'Animations';
 
-// Level 2
 export const animationsAnimatingPropertiesPath = (): AnimationsAnimatingPropertiesPathType => '/animations/animating-properties';
 export const ANIMATIONS_ANIMATING_PROPERTIES_TITLE: AnimationsAnimatingPropertiesTitleType = 'Animating Properties';
 
-// Level 3
+export const animationsAnimatedValueFunctionsPath = (): AnimationsAnimatedValueFunctionsPathType => '/animations/animated-value-functions';
+export const ANIMATIONS_ANIMATED_VALUE_FUNCTIONS_TITLE: AnimationsAnimatedValueFunctionsTitleType = 'Animated Value Functions';
+
 export const animatingPropertiesOpacityPath = (): AnimatingPropertiesOpacityPathType => '/animations/animating-properties/opacity';
 export const ANIMATING_PROPERTIES_OPACITY_TITLE: AnimatingPropertiesOpacityTitleType = 'Opacity';
 
@@ -82,7 +84,7 @@ const routes: RouterType = [
   {
     path: moduleAnimationsPath(),
     title: MODULE_ANIMATIONS_TITLE,
-    level: 1,
+    father: '3',
     component: ModuleAnimations,
     exact: true,
     id: '0',
@@ -90,7 +92,7 @@ const routes: RouterType = [
   {
     path: animationsAnimatingPropertiesPath(),
     title: ANIMATIONS_ANIMATING_PROPERTIES_TITLE,
-    level: 2,
+    father: '0',
     component: AnimationsAnimatingProperties,
     exact: true,
     id: '1',
@@ -98,7 +100,7 @@ const routes: RouterType = [
   {
     path: animatingPropertiesOpacityPath(),
     title: ANIMATING_PROPERTIES_OPACITY_TITLE,
-    level: 3,
+    father: '1',
     component: AnimatingPropertiesOpacity,
     exact: true,
     id: '2',
@@ -106,7 +108,7 @@ const routes: RouterType = [
   {
     path: modulesPath(),
     title: MODULES_TITLE,
-    level: 0,
+    father: null,
     component: Modules,
     exact: true,
     id: '3',
@@ -114,7 +116,7 @@ const routes: RouterType = [
   {
     path: animatingPropertiesTranslatePositionPath(),
     title: ANIMATING_PROPERTIES_TRANSLATE_POSITION_TITLE,
-    level: 3,
+    father: '1',
     component: AnimatingPropertiesTranslatePosition,
     exact: true,
     id: '4',
@@ -122,7 +124,7 @@ const routes: RouterType = [
   {
     path: animatingPropertiesScalePath(),
     title: ANIMATING_PROPERTIES_SCALE_TITLE,
-    level: 3,
+    father: '1',
     component: AnimatingPropertiesScale,
     exact: true,
     id: '5',
@@ -130,7 +132,7 @@ const routes: RouterType = [
   {
     path: animatingPropertiesAbsolutePositionPath(),
     title: ANIMATING_PROPERTIES_ABSOLUTE_POSITION_TITLE,
-    level: 3,
+    father: '1',
     component: AnimatingPropertiesAbsolutePosition,
     exact: true,
     id: '6',
@@ -138,7 +140,7 @@ const routes: RouterType = [
   {
     path: animatingPropertiesColorAndBackgroundColorPath(),
     title: ANIMATING_PROPERTIES_COLOR_AND_BACKGROUND_COLOR_TITLE,
-    level: 3,
+    father: '1',
     component: AnimatingPropertiesColorAndBackgroundColor,
     exact: true,
     id: '7',
@@ -146,7 +148,7 @@ const routes: RouterType = [
   {
     path: animatingPropertiesRotationPath(),
     title: ANIMATING_PROPERTIES_ROTATION_TITLE,
-    level: 3,
+    father: '1',
     component: AnimatingPropertiesRotation,
     exact: true,
     id: '8',
@@ -154,7 +156,7 @@ const routes: RouterType = [
   {
     path: animatingPropertiesWidthHeightPercentagePath(),
     title: ANIMATING_PROPERTIES_WIDTH_HEIGHT_PERCENTAGE_TITLE,
-    level: 3,
+    father: '1',
     component: AnimatingPropertiesWidthHeightPercentage,
     exact: true,
     id: '9',
@@ -162,10 +164,18 @@ const routes: RouterType = [
   {
     path: animatingPropertiesWidthHeightPath(),
     title: ANIMATING_PROPERTIES_WIDTH_HEIGHT_TITLE,
-    level: 3,
+    father: '1',
     component: AnimatingPropertiesWidthHeight,
     exact: true,
     id: '10',
+  },
+  {
+    path: animationsAnimatedValueFunctionsPath(),
+    title: ANIMATIONS_ANIMATED_VALUE_FUNCTIONS_TITLE,
+    father: '0',
+    component: AnimationsAnimatedValueFunctions,
+    exact: true,
+    id: '11',
   },
 ];
 
