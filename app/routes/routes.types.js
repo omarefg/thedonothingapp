@@ -17,18 +17,22 @@ export type AnimationsAnimatingPropertiesTitleType = 'Animating Properties'
 // Level 3
 export type AnimatingPropertiesOpacityPathType = '/animations/animating-properties/opacity'
 export type AnimatingPropertiesOpacityTitleType = 'Opacity'
+export type AnimatingPropertiesTranslatePositionPathType = '/animations/animating-properties/translate-position'
+export type AnimatingPropertiesTranslatePositionTitleType = 'Translate Position'
 
 type PathType =
 | ModulesPathType
 | ModuleAnimationsPathType
 | AnimationsAnimatingPropertiesPathType
 | AnimatingPropertiesOpacityPathType
+| AnimatingPropertiesTranslatePositionPathType
 
 type TitleType =
 | ModulesTitleType
 | ModulesAnimationTitleType
 | AnimationsAnimatingPropertiesTitleType
 | AnimatingPropertiesOpacityTitleType
+| AnimatingPropertiesTranslatePositionTitleType
 
 export type RouteItemType = {
   path: PathType,
