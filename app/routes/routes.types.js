@@ -1,7 +1,6 @@
 /**
  * @flow
  */
-import * as React from 'react';
 
 // Level 0
 export type ModulesPathType = '/'
@@ -31,10 +30,10 @@ type TitleType =
 | AnimationsAnimatingPropertiesTitleType
 | AnimatingPropertiesOpacityTitleType
 
-type RouteItemType = {
+export type RouteItemType = {
   path: PathType,
   title: TitleType,
-  component: React.Node,
+  component: React$Node,
   level: number,
   exact: boolean,
   id: string

@@ -2,16 +2,20 @@
  * @flow
  */
 
-import * as React from 'react';
+import React from 'react';
 import { SectionList } from '../components';
-import { HeaderProvider } from '../providers';
+import type { RouterType } from '../routes/routes.types';
 
-export function Modules(): React.Node {
+type ModulesProps = {
+  routes: RouterType
+}
+
+export function Modules(props: ModulesProps): React$Node {
+  const { routes } = props;
+
   return (
-    <HeaderProvider>
-      <SectionList
-        level={1}
-      />
-    </HeaderProvider>
+    <SectionList
+      data={routes.filter((route) => route.level === 1)}
+    />
   );
 }

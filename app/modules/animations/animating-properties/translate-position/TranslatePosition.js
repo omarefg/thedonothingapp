@@ -23,25 +23,23 @@ const styles = StyleSheet.create({
   },
 });
 
-export function AnimatingPropertiesOpacity(): React$Node {
-  const animation = new Animated.Value(1);
+export function AnimatingPropertiesTranslatePosition(): React$Node {
+  const animation = new Animated.Value(0);
 
   const startAnimation = () => {
     Animated.timing(animation, {
-      toValue: 0,
-      duration: 350,
+      toValue: 300,
+      duration: 1500,
       useNativeDriver: true,
     }).start(() => {
-      Animated.timing(animation, {
-        toValue: 1,
-        duration: 500,
-        useNativeDriver: true,
-      }).start();
+      animation.setValue(0);
     });
   };
 
   const animatedStyles = {
-    opacity: animation,
+    transform: [
+      { translateY: animation },
+    ],
   };
 
   return (

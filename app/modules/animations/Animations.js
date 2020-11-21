@@ -2,16 +2,20 @@
  * @flow
  */
 
-import * as React from 'react';
+import React from 'react';
 import { SectionList } from '../../components';
-import { HeaderProvider } from '../../providers';
+import type { RouterType } from '../../routes/routes.types';
 
-export function ModuleAnimations(): React.Node {
+type ModuleAnimationsProps = {
+  routes: RouterType
+}
+
+export function ModuleAnimations(props: ModuleAnimationsProps): React$Node {
+  const { routes } = props;
+
   return (
-    <HeaderProvider>
-      <SectionList
-        level={2}
-      />
-    </HeaderProvider>
+    <SectionList
+      data={routes.filter((route) => route.level === 2)}
+    />
   );
 }

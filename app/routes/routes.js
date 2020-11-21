@@ -21,20 +21,20 @@ import {
 } from '../modules';
 
 // Level 0
-const modulesPath = (): ModulesPathType => '/';
-const MODULES_TITLE: ModulesTitleType = 'Modules';
+export const modulesPath = (): ModulesPathType => '/';
+export const MODULES_TITLE: ModulesTitleType = 'Modules';
 
 // Level 1
-const moduleAnimationsPath = (): ModuleAnimationsPathType => '/animations';
-const MODULE_ANIMATIONS_TITLE: ModulesAnimationTitleType = 'Animations';
+export const moduleAnimationsPath = (): ModuleAnimationsPathType => '/animations';
+export const MODULE_ANIMATIONS_TITLE: ModulesAnimationTitleType = 'Animations';
 
 // Level 2
-const animationsAnimatingPropertiesPath = (): AnimationsAnimatingPropertiesPathType => '/animations/animating-properties';
-const ANIMATIONS_ANIMATING_PROPERTIES_TITLE: AnimationsAnimatingPropertiesTitleType = 'Animating Properties';
+export const animationsAnimatingPropertiesPath = (): AnimationsAnimatingPropertiesPathType => '/animations/animating-properties';
+export const ANIMATIONS_ANIMATING_PROPERTIES_TITLE: AnimationsAnimatingPropertiesTitleType = 'Animating Properties';
 
 // Level 3
-const animatingPropertiesOpacityPath = (): AnimatingPropertiesOpacityPathType => '/animations/animating-properties/opacity';
-const ANIMATING_PROPERTIES_OPACITY_TITLE: AnimatingPropertiesOpacityTitleType = 'Opacity';
+export const animatingPropertiesOpacityPath = (): AnimatingPropertiesOpacityPathType => '/animations/animating-properties/opacity';
+export const ANIMATING_PROPERTIES_OPACITY_TITLE: AnimatingPropertiesOpacityTitleType = 'Opacity';
 
 const routes: RouterType = [
   {

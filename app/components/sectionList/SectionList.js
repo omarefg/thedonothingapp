@@ -2,25 +2,22 @@
  * @flow
  */
 
-import * as React from 'react';
+import React from 'react';
 import { FlatList, Text, View } from 'react-native';
-import { Link, useHistory } from 'react-router-native';
-import routes from '../../routes/routes';
+import { Link } from 'react-router-native';
+import type { RouterType } from '../../routes/routes.types';
 
 type SectionListProps = {
-  level: number
+  data: RouterType
 }
 
-export function SectionList(props: SectionListProps): React.Node {
-  const { level } = props;
-  const { location: { pathname } } = useHistory();
-  const title = routes.find((route) => route.path === pathname)?.title;
+export function SectionList(props: SectionListProps): React$Node {
+  const { data } = props;
 
   return (
     <View>
       <FlatList
-        ListHeaderComponent={<Text>{title}</Text>}
-        data={routes.filter((route) => route.level === level)}
+        data={data}
         renderItem={({ item }) => (
           <Link
             to={item.path}
