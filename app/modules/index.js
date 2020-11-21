@@ -4,3 +4,8 @@ export * from './animations/animating-properties/AnimatingProperties';
 export * from './animations/animating-properties/opacity/Opacity';
 export * from './animations/animating-properties/translate-position/TranslatePosition';
 export * from './animations/animating-properties/scale/Scale';
+export * from './animations/animating-properties/absolutePosition/AbsolutePosition';
+export * from './animations/animating-properties/colorAndBackgroundColor/ColorAndBackgroundColor';
+export * from './animations/animating-properties/rotation/Rotation';
+export * from './animations/animating-properties/widthHeight/WidthHeight';
+export * from './animations/animating-properties/widthHeightPercentage/WidthHeightPercentage';
