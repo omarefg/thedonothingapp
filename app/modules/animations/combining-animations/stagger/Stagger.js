@@ -24,32 +24,37 @@ const styles = StyleSheet.create({
 });
 
 export function CombiningAnimationsStagger(): React$Node {
-  const animation = new Animated.Value(1);
+  const colorAnimation = new Animated.Value(0);
+  const scaleAnimation = new Animated.Value(1);
 
   const startAnimation = () => {
-    Animated.timing(animation, {
-      toValue: 0,
-      duration: 350,
-      useNativeDriver: true,
-    }).start(() => {
-      Animated.timing(animation, {
+    Animated.stagger(200, [
+      Animated.timing(colorAnimation, {
         toValue: 1,
         duration: 500,
-        useNativeDriver: true,
-      }).start();
-    });
+        useNativeDriver: false,
+      }),
+      Animated.timing(scaleAnimation, {
+        toValue: 2,
+        duration: 300,
+        useNativeDriver: false,
+      }),
+    ]).start();
   };
 
-  const animatedStyles = {
-    opacity: animation,
+  const backgroundColorInterpolate = colorAnimation.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['rgb(255,99,71)', 'rgb(99,71,255)'],
+  });
+  const boxStyle = {
+    backgroundColor: backgroundColorInterpolate,
+    transform: [{ scale: scaleAnimation }],
   };
 
   return (
     <View style={styles.container}>
       <Pressable onPress={startAnimation}>
-        <Animated.View
-          style={[styles.box, animatedStyles]}
-        />
+        <Animated.View style={[styles.box, boxStyle]} />
       </Pressable>
     </View>
   );
