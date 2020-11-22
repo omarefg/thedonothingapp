@@ -12,6 +12,7 @@
   "dependencies": {
     "@react-native-community/async-storage": "1.12.1",
     "art": "0.10.3",
+    "clamp": "1.0.1",
     "d3-interpolate": "2.0.1",
     "d3-interpolate-path": "2.2.1",
     "flubber": "0.4.2",
