@@ -2,13 +2,14 @@
  * @flow
  */
 
-import React from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import {
   Animated,
   StyleSheet,
   Pressable,
   View,
 } from 'react-native';
+import { interpolateNumber, interpolateRgb } from 'd3-interpolate';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,39 +18,49 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   box: {
-    width: 150,
-    height: 150,
+    width: 50,
+    height: 50,
     backgroundColor: 'tomato',
   },
 });
 
 export function UnderstandingHowAnimatedWorksUsingD3InterpolateWithAnimated(): React$Node {
-  const animation = new Animated.Value(1);
+  const animation = useMemo(() => new Animated.Value(0), []);
+  const viewRef = useRef();
 
   const startAnimation = () => {
     Animated.timing(animation, {
-      toValue: 0,
-      duration: 350,
-      useNativeDriver: true,
-    }).start(() => {
-      Animated.timing(animation, {
-        toValue: 1,
-        duration: 500,
-        useNativeDriver: true,
-      }).start();
-    });
+      toValue: 1,
+      duration: 500,
+      useNativeDriver: false,
+    }).start();
   };
 
-  const animatedStyles = {
-    opacity: animation,
-  };
+  useEffect(() => {
+    const positionInterpolate = interpolateNumber(0, 200);
+    const colorInterpolate = interpolateRgb('rgb(255,99,71)', 'rgb(99,71,255)');
+
+    animation.addListener(({ value }) => {
+      const position = positionInterpolate(value);
+      const color = colorInterpolate(value);
+
+      const style = [
+        styles.box,
+        {
+          backgroundColor: color,
+          transform: [
+            { translateY: position },
+          ],
+        },
+      ];
+      viewRef?.current?.setNativeProps({ style });
+    });
+  }, [animation]);
 
   return (
     <View style={styles.container}>
       <Pressable onPress={startAnimation}>
-        <Animated.View
-          style={[styles.box, animatedStyles]}
-        />
+        <View style={styles.box} ref={viewRef} />
       </Pressable>
     </View>
   );

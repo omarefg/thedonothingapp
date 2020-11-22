@@ -6,8 +6,8 @@ import React from 'react';
 import {
   Animated,
   StyleSheet,
-  Pressable,
   View,
+  Button,
 } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -16,41 +16,41 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  box: {
-    width: 150,
-    height: 150,
-    backgroundColor: 'tomato',
-  },
+
 });
 
+const AnimatedButton = Animated.createAnimatedComponent(Button);
+
 export function UnderstandingHowAnimatedWorksCreateAnimatedComponent(): React$Node {
-  const animation = new Animated.Value(1);
+  const animation = new Animated.Value(0);
 
   const startAnimation = () => {
     Animated.timing(animation, {
-      toValue: 0,
-      duration: 350,
-      useNativeDriver: true,
+      toValue: 1,
+      duration: 1500,
+      useNativeDriver: false,
     }).start(() => {
       Animated.timing(animation, {
-        toValue: 1,
-        duration: 500,
-        useNativeDriver: true,
+        toValue: 0,
+        duration: 300,
+        useNativeDriver: false,
       }).start();
     });
   };
 
-  const animatedStyles = {
-    opacity: animation,
-  };
+  const animatedColor = animation.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['rgb(255,99,71)', 'rgb(99,71,255)'],
+  });
 
   return (
     <View style={styles.container}>
-      <Pressable onPress={startAnimation}>
-        <Animated.View
-          style={[styles.box, animatedStyles]}
-        />
-      </Pressable>
+      <AnimatedButton
+        title="Press Me"
+        onPress={startAnimation}
+        color={animatedColor}
+      />
     </View>
+
   );
 }

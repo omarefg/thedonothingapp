@@ -117,8 +117,6 @@ import type {
   AnimationsNativeAnimationsTitleType,
   AnimationsUnderstandingHowAnimatedWorksPathType,
   AnimationsUnderstandingHowAnimatedWorksTitleType,
-  UnderstandingHowAnimatedWorksAnimatedInternalsPathType,
-  UnderstandingHowAnimatedWorksAnimatedInternalsTitleType,
   UnderstandingHowAnimatedWorksCreateAnimatedComponentPathType,
   UnderstandingHowAnimatedWorksCreateAnimatedComponentTitleType,
   UnderstandingHowAnimatedWorksUsingAndUnderstandingSetNativePropsPathType,
@@ -196,7 +194,6 @@ import {
   InterpolationRotation,
   AnimationsNativeAnimations,
   AnimationsUnderstandingHowAnimatedWorks,
-  UnderstandingHowAnimatedWorksAnimatedInternals,
   UnderstandingHowAnimatedWorksCreateAnimatedComponent,
   UnderstandingHowAnimatedWorksUsingAndUnderstandingSetNativeProps,
   UnderstandingHowAnimatedWorksUsingArtMorphTweenAndAnimatedToAnimateComplexSVGPaths,
@@ -389,9 +386,6 @@ export const NATIVE_ANIMATIONS_SPRING_NATIVE_TITLE: NativeAnimationsSpringNative
 
 export const animationsUnderstandingHowAnimatedWorksPath = (): AnimationsUnderstandingHowAnimatedWorksPathType => '/animations/understanding-how-animated-works';
 export const ANIMATIONS_UNDERSTANDING_HOW_ANIMATED_WORKS_TITLE: AnimationsUnderstandingHowAnimatedWorksTitleType = 'Understanding How Animated Works';
-
-export const understandingHowAnimatedWorksAnimatedInternalsPath = (): UnderstandingHowAnimatedWorksAnimatedInternalsPathType => '/animations/understanding-how-animated-works/animated-internals';
-export const UNDERSTANDING_HOW_ANIMATED_WORKS_ANIMATED_INTERNALS_TITLE: UnderstandingHowAnimatedWorksAnimatedInternalsTitleType = 'Animated Internals';
 
 export const understandingHowAnimatedWorksCreateAnimatedComponentPath = (): UnderstandingHowAnimatedWorksCreateAnimatedComponentPathType => '/animations/understanding-how-animated-works/create-animated-component';
 export const UNDERSTANDING_HOW_ANIMATED_WORKS_CREATE_ANIMATED_COMPONENT_TITLE: UnderstandingHowAnimatedWorksCreateAnimatedComponentTitleType = 'Create Animated Component';
@@ -859,14 +853,6 @@ const routes: RouterType = [
     father: '0',
     exact: true,
     id: '55',
-  },
-  {
-    path: understandingHowAnimatedWorksAnimatedInternalsPath(),
-    title: UNDERSTANDING_HOW_ANIMATED_WORKS_ANIMATED_INTERNALS_TITLE,
-    component: UnderstandingHowAnimatedWorksAnimatedInternals,
-    father: '55',
-    exact: true,
-    id: '56',
   },
   {
     path: understandingHowAnimatedWorksCreateAnimatedComponentPath(),

@@ -58,7 +58,6 @@ export * from './animations/native-animations/scroll-native/ScrollNative';
 export * from './animations/native-animations/spring-native/SpringNative';
 export * from './animations/native-animations/timing-native/TimingNative';
 export * from './animations/understanding-how-animated-works/UnderstandingHowAnimatedWorks';
-export * from './animations/understanding-how-animated-works/animated-internals/AnimatedInternals';
 export * from './animations/understanding-how-animated-works/create-animated-component/CreateAnimatedComponent';
 export * from './animations/understanding-how-animated-works/using-and-understanding-set-native-props/UsingAndUnderstandingSetNativeProps';
 export * from './animations/understanding-how-animated-works/using-art-morph-tween-and-animated-to-animate-complex-svg-paths/UsingArtMorphTweenAndAnimatedToAnimateComplexSVGPaths';

@@ -182,9 +182,6 @@ export type NativeAnimationsSpringNativeTitleType = 'Spring Native'
 export type AnimationsUnderstandingHowAnimatedWorksPathType = '/animations/understanding-how-animated-works'
 export type AnimationsUnderstandingHowAnimatedWorksTitleType = 'Understanding How Animated Works'
 
-export type UnderstandingHowAnimatedWorksAnimatedInternalsPathType = '/animations/understanding-how-animated-works/animated-internals'
-export type UnderstandingHowAnimatedWorksAnimatedInternalsTitleType = 'Animated Internals'
-
 export type UnderstandingHowAnimatedWorksCreateAnimatedComponentPathType = '/animations/understanding-how-animated-works/create-animated-component'
 export type UnderstandingHowAnimatedWorksCreateAnimatedComponentTitleType = 'Create Animated Component'
 
@@ -259,7 +256,6 @@ type PathType =
 | InterpolationRotationPathType
 | AnimationsNativeAnimationsPathType
 | AnimationsUnderstandingHowAnimatedWorksPathType
-| UnderstandingHowAnimatedWorksAnimatedInternalsPathType
 | UnderstandingHowAnimatedWorksCreateAnimatedComponentPathType
 | UnderstandingHowAnimatedWorksUsingAndUnderstandingSetNativePropsPathType
 | UnderstandingHowAnimatedWorksUsingArtMorphTweenAndAnimatedToAnimateComplexSVGPathsPathType
@@ -328,7 +324,6 @@ type TitleType =
 | InterpolationRotationTitleType
 | AnimationsNativeAnimationsTitleType
 | AnimationsUnderstandingHowAnimatedWorksTitleType
-| UnderstandingHowAnimatedWorksAnimatedInternalsTitleType
 | UnderstandingHowAnimatedWorksCreateAnimatedComponentTitleType
 | UnderstandingHowAnimatedWorksUsingAndUnderstandingSetNativePropsTitleType
 | UnderstandingHowAnimatedWorksUsingArtMorphTweenAndAnimatedToAnimateComplexSVGPathsTitleType

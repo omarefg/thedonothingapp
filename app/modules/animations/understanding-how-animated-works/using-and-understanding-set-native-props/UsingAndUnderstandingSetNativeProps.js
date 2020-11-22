@@ -2,55 +2,93 @@
  * @flow
  */
 
-import React from 'react';
+import React, { useRef } from 'react';
 import {
   Animated,
   StyleSheet,
   Pressable,
   View,
+  Text,
+  ScrollView,
 } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: 50,
   },
-  box: {
-    width: 150,
-    height: 150,
+  scroll: {
+    flex: 1,
+    opacity: 1,
+  },
+  hide: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+  },
+  fakeContent: {
+    height: 3000,
     backgroundColor: 'tomato',
   },
+
 });
 
 export function UnderstandingHowAnimatedWorksUsingAndUnderstandingSetNativeProps(): React$Node {
-  const animation = new Animated.Value(1);
+  const animation = new Animated.Value(0);
+  let enabled = true;
+  const scroll = useRef();
 
   const startAnimation = () => {
-    Animated.timing(animation, {
-      toValue: 0,
-      duration: 350,
-      useNativeDriver: true,
-    }).start(() => {
-      Animated.timing(animation, {
-        toValue: 1,
-        duration: 500,
-        useNativeDriver: true,
-      }).start();
+    enabled = !enabled;
+    const style = [styles.scroll];
+
+    if (!enabled) {
+      style.push(styles.hide);
+    } else {
+      style.push(styles.show);
+    }
+
+    scroll?.current?.setNativeProps({
+      scrollEnabled: enabled,
+      style,
     });
   };
 
-  const animatedStyles = {
-    opacity: animation,
+  const bgInterpolate = animation.interpolate({
+    inputRange: [0, 3000],
+    outputRange: ['rgb(255,99,71)', 'rgb(99,71,255)'],
+  });
+  const scrollStyle = {
+    backgroundColor: bgInterpolate,
   };
 
   return (
     <View style={styles.container}>
       <Pressable onPress={startAnimation}>
-        <Animated.View
-          style={[styles.box, animatedStyles]}
-        />
+        <Text>Toggle</Text>
       </Pressable>
+
+      <ScrollView
+        style={styles.scroll}
+        ref={scroll}
+        scrollEventThrottle={16}
+        onScroll={Animated.event(
+          [
+            {
+              nativeEvent: {
+                contentOffset: {
+                  y: animation,
+                },
+              },
+            },
+          ],
+          { useNativeDriver: false },
+        )}
+      >
+        <Animated.View style={[styles.fakeContent, scrollStyle]} />
+      </ScrollView>
     </View>
+
   );
 }
