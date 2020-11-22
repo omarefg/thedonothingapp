@@ -170,8 +170,14 @@ export type InterpolationRotationTitleType = 'Rotation'
 export type AnimationsNativeAnimationsPathType = '/animations/native-animations'
 export type AnimationsNativeAnimationsTitleType = 'Native Animations'
 
-export type NativeAnimationsVideoPathType = '/animations/native-animations/video'
-export type NativeAnimationsVideoTitleType = 'Video'
+export type NativeAnimationsTimingNativePathType = '/animations/native-animations/timing-native'
+export type NativeAnimationsTimingNativeTitleType = 'Timing Native'
+
+export type NativeAnimationsScrollNativePathType = '/animations/native-animations/scroll-native'
+export type NativeAnimationsScrollNativeTitleType = 'Scroll Native'
+
+export type NativeAnimationsSpringNativePathType = '/animations/native-animations/spring-native'
+export type NativeAnimationsSpringNativeTitleType = 'Spring Native'
 
 export type AnimationsUnderstandingHowAnimatedWorksPathType = '/animations/understanding-how-animated-works'
 export type AnimationsUnderstandingHowAnimatedWorksTitleType = 'Understanding How Animated Works'
@@ -252,7 +258,6 @@ type PathType =
 | InterpolationNumbersAndInterpolateOnInterpolatesPathType
 | InterpolationRotationPathType
 | AnimationsNativeAnimationsPathType
-| NativeAnimationsVideoPathType
 | AnimationsUnderstandingHowAnimatedWorksPathType
 | UnderstandingHowAnimatedWorksAnimatedInternalsPathType
 | UnderstandingHowAnimatedWorksCreateAnimatedComponentPathType
@@ -263,6 +268,9 @@ type PathType =
 | UnderstandingHowAnimatedWorksUsingFlubberAndAnimatedForBetterSVGPathMorphingPathType
 | AnimationsCombiningAnimationsPathType
 | AnimatedTechniquesPointerEventsPathType
+| NativeAnimationsTimingNativePathType
+| NativeAnimationsScrollNativePathType
+| NativeAnimationsSpringNativePathType
 
 type TitleType =
 | ModulesTitleType
@@ -319,7 +327,6 @@ type TitleType =
 | InterpolationNumbersAndInterpolateOnInterpolatesTitleType
 | InterpolationRotationTitleType
 | AnimationsNativeAnimationsTitleType
-| NativeAnimationsVideoTitleType
 | AnimationsUnderstandingHowAnimatedWorksTitleType
 | UnderstandingHowAnimatedWorksAnimatedInternalsTitleType
 | UnderstandingHowAnimatedWorksCreateAnimatedComponentTitleType
@@ -330,6 +337,9 @@ type TitleType =
 | UnderstandingHowAnimatedWorksUsingFlubberAndAnimatedForBetterSVGPathMorphingTitleType
 | AnimationsCombiningAnimationsTitleType
 | AnimatedTechniquesPointerEventsTitleType
+| NativeAnimationsTimingNativeTitleType
+| NativeAnimationsScrollNativeTitleType
+| NativeAnimationsSpringNativeTitleType
 
 export type RouteItemType = {
   path: PathType,

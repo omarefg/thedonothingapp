@@ -23,25 +23,26 @@ const styles = StyleSheet.create({
   },
 });
 
-export function NativeAnimationsVideo(): React$Node {
+export function NativeAnimationsSpringNative(): React$Node {
   const animation = new Animated.Value(1);
 
   const startAnimation = () => {
-    Animated.timing(animation, {
-      toValue: 0,
-      duration: 350,
+    Animated.spring(animation, {
+      toValue: 2,
+      friction: 2,
+      tension: 160,
       useNativeDriver: true,
     }).start(() => {
       Animated.timing(animation, {
         toValue: 1,
-        duration: 500,
+        duration: 100,
         useNativeDriver: true,
       }).start();
     });
   };
 
   const animatedStyles = {
-    opacity: animation,
+    transform: [{ scale: animation }],
   };
 
   return (

@@ -115,8 +115,6 @@ import type {
   InterpolationRotationTitleType,
   AnimationsNativeAnimationsPathType,
   AnimationsNativeAnimationsTitleType,
-  NativeAnimationsVideoPathType,
-  NativeAnimationsVideoTitleType,
   AnimationsUnderstandingHowAnimatedWorksPathType,
   AnimationsUnderstandingHowAnimatedWorksTitleType,
   UnderstandingHowAnimatedWorksAnimatedInternalsPathType,
@@ -135,6 +133,12 @@ import type {
   UnderstandingHowAnimatedWorksUsingFlubberAndAnimatedForBetterSVGPathMorphingTitleType,
   AnimatedTechniquesPointerEventsPathType,
   AnimatedTechniquesPointerEventsTitleType,
+  NativeAnimationsTimingNativePathType,
+  NativeAnimationsTimingNativeTitleType,
+  NativeAnimationsScrollNativePathType,
+  NativeAnimationsScrollNativeTitleType,
+  NativeAnimationsSpringNativePathType,
+  NativeAnimationsSpringNativeTitleType,
 } from './routes.types';
 import {
   ModuleAnimations,
@@ -191,7 +195,6 @@ import {
   InterpolationNumbersAndInterpolateOnInterpolates,
   InterpolationRotation,
   AnimationsNativeAnimations,
-  NativeAnimationsVideo,
   AnimationsUnderstandingHowAnimatedWorks,
   UnderstandingHowAnimatedWorksAnimatedInternals,
   UnderstandingHowAnimatedWorksCreateAnimatedComponent,
@@ -202,6 +205,9 @@ import {
   UnderstandingHowAnimatedWorksUsingFlubberAndAnimatedForBetterSVGPathMorphing,
   AnimationsCombiningAnimations,
   AnimatedTechniquesPointerEvents,
+  NativeAnimationsTimingNative,
+  NativeAnimationsScrollNative,
+  NativeAnimationsSpringNative,
 } from '../modules';
 
 export const modulesPath = (): ModulesPathType => '/';
@@ -372,8 +378,14 @@ export const INTERPOLATION_ROTATION_TITLE: InterpolationRotationTitleType = 'Rot
 export const animationsNativeAnimationsPath = (): AnimationsNativeAnimationsPathType => '/animations/native-animations';
 export const ANIMATIONS_NATIVE_ANIMATIONS_TITLE: AnimationsNativeAnimationsTitleType = 'Native Animations';
 
-export const nativeAnimationsVideoPath = (): NativeAnimationsVideoPathType => '/animations/native-animations/video';
-export const NATIVE_ANIMATIONS_VIDEO_TITLE: NativeAnimationsVideoTitleType = 'Video';
+export const nativeAnimationsTimingNativePath = (): NativeAnimationsTimingNativePathType => '/animations/native-animations/timing-native';
+export const NATIVE_ANIMATIONS_TIMING_NATIVE_TITLE: NativeAnimationsTimingNativeTitleType = 'Timing Native';
+
+export const nativeAnimationsScrollNativePath = (): NativeAnimationsScrollNativePathType => '/animations/native-animations/scroll-native';
+export const NATIVE_ANIMATIONS_SCROLL_NATIVE_TITLE: NativeAnimationsScrollNativeTitleType = 'Scroll Native';
+
+export const nativeAnimationsSpringNativePath = (): NativeAnimationsSpringNativePathType => '/animations/native-animations/spring-native';
+export const NATIVE_ANIMATIONS_SPRING_NATIVE_TITLE: NativeAnimationsSpringNativeTitleType = 'Spring Native';
 
 export const animationsUnderstandingHowAnimatedWorksPath = (): AnimationsUnderstandingHowAnimatedWorksPathType => '/animations/understanding-how-animated-works';
 export const ANIMATIONS_UNDERSTANDING_HOW_ANIMATED_WORKS_TITLE: AnimationsUnderstandingHowAnimatedWorksTitleType = 'Understanding How Animated Works';
@@ -833,9 +845,9 @@ const routes: RouterType = [
     id: '53',
   },
   {
-    path: nativeAnimationsVideoPath(),
-    title: NATIVE_ANIMATIONS_VIDEO_TITLE,
-    component: NativeAnimationsVideo,
+    path: nativeAnimationsTimingNativePath(),
+    title: NATIVE_ANIMATIONS_TIMING_NATIVE_TITLE,
+    component: NativeAnimationsTimingNative,
     father: '53',
     exact: true,
     id: '54',
@@ -919,6 +931,22 @@ const routes: RouterType = [
     father: '37',
     exact: true,
     id: '64',
+  },
+  {
+    path: nativeAnimationsScrollNativePath(),
+    title: NATIVE_ANIMATIONS_SCROLL_NATIVE_TITLE,
+    component: NativeAnimationsScrollNative,
+    father: '53',
+    exact: true,
+    id: '65',
+  },
+  {
+    path: nativeAnimationsSpringNativePath(),
+    title: NATIVE_ANIMATIONS_SPRING_NATIVE_TITLE,
+    component: NativeAnimationsSpringNative,
+    father: '53',
+    exact: true,
+    id: '66',
   },
 ];
 
