@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowOffset: { x: 0, y: 0 },
     shadowRadius: 5,
+    minWidth: 120,
   },
   yupButton: {
     shadowColor: 'green',
@@ -104,7 +105,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: 'red',
   },
-
+  buttonText: {
+    color: 'white',
+    fontWeight: 'bold',
+  },
 });
 
 export function BasicRealWorldKittenCards(): React$Node {
@@ -289,13 +293,13 @@ export function BasicRealWorldKittenCards(): React$Node {
           onPress={handleNo}
           style={[styles.button, styles.nopeButton]}
         >
-          <Text style={styles.nopeText}>NO</Text>
+          <Text style={styles.buttonText}>NO</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={handleYes}
           style={[styles.button, styles.yupButton]}
         >
-          <Text>YES</Text>
+          <Text style={styles.buttonText}>YES</Text>
         </TouchableOpacity>
       </View>
     </View>

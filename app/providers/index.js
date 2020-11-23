@@ -2,4 +2,4 @@
  * @flow
  */
 
-export * from './headerProvider/HeaderProvider';
+export * from './HeaderProvider';

@@ -2,4 +2,4 @@
  * @flow
  */
 
-export * from './sectionList/SectionList';
+export * from './SectionList';
