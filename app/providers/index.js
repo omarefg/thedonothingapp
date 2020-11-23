@@ -2,4 +2,4 @@
  * @flow
  */
 
-export * from './HeaderProvider';
+export * from './ThemeProvider';

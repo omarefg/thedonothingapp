@@ -6,7 +6,10 @@ export type ModulesPathType = '/'
 export type ModulesTitleType = 'Modules'
 
 export type ModuleAnimationsPathType = '/animations'
-export type ModulesAnimationTitleType = 'Animations'
+export type ModulesAnimationsTitleType = 'Animations'
+
+export type ModuleSettingsPathType = '/settings'
+export type ModulesSettingsTitleType = 'Settings'
 
 export type AnimationsAnimatingPropertiesPathType = '/animations/animating-properties'
 export type AnimationsAnimatingPropertiesTitleType = 'Animating Properties'
@@ -267,10 +270,11 @@ type PathType =
 | NativeAnimationsTimingNativePathType
 | NativeAnimationsScrollNativePathType
 | NativeAnimationsSpringNativePathType
+| ModuleSettingsPathType
 
 type TitleType =
 | ModulesTitleType
-| ModulesAnimationTitleType
+| ModulesAnimationsTitleType
 | AnimationsAnimatingPropertiesTitleType
 | AnimatingPropertiesOpacityTitleType
 | AnimatingPropertiesTranslatePositionTitleType
@@ -335,6 +339,7 @@ type TitleType =
 | NativeAnimationsTimingNativeTitleType
 | NativeAnimationsScrollNativeTitleType
 | NativeAnimationsSpringNativeTitleType
+| ModulesSettingsTitleType
 
 export type RouteItemType = {
   path: PathType,

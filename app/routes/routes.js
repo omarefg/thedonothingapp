@@ -6,7 +6,7 @@
 import type {
   RouterType,
   ModuleAnimationsPathType,
-  ModulesAnimationTitleType,
+  ModulesAnimationsTitleType,
   AnimationsAnimatingPropertiesPathType,
   AnimationsAnimatingPropertiesTitleType,
   AnimatingPropertiesOpacityPathType,
@@ -137,6 +137,8 @@ import type {
   NativeAnimationsScrollNativeTitleType,
   NativeAnimationsSpringNativePathType,
   NativeAnimationsSpringNativeTitleType,
+  ModuleSettingsPathType,
+  ModulesSettingsTitleType,
 } from './routes.types';
 import {
   ModuleAnimations,
@@ -205,13 +207,17 @@ import {
   NativeAnimationsTimingNative,
   NativeAnimationsScrollNative,
   NativeAnimationsSpringNative,
+  ModuleSettings,
 } from '../modules';
 
 export const modulesPath = (): ModulesPathType => '/';
 export const MODULES_TITLE: ModulesTitleType = 'Modules';
 
 export const moduleAnimationsPath = (): ModuleAnimationsPathType => '/animations';
-export const MODULE_ANIMATIONS_TITLE: ModulesAnimationTitleType = 'Animations';
+export const MODULE_ANIMATIONS_TITLE: ModulesAnimationsTitleType = 'Animations';
+
+export const moduleSettingsPath = (): ModuleSettingsPathType => '/settings';
+export const MODULE_SETTINGS_TITLE: ModulesSettingsTitleType = 'Settings';
 
 export const animationsAnimatingPropertiesPath = (): AnimationsAnimatingPropertiesPathType => '/animations/animating-properties';
 export const ANIMATIONS_ANIMATING_PROPERTIES_TITLE: AnimationsAnimatingPropertiesTitleType = 'Animating Properties';
@@ -933,6 +939,14 @@ const routes: RouterType = [
     father: '53',
     exact: true,
     id: '66',
+  },
+  {
+    path: moduleSettingsPath(),
+    title: MODULE_SETTINGS_TITLE,
+    father: '3',
+    component: ModuleSettings,
+    exact: true,
+    id: '67',
   },
 ];
 
