@@ -8,13 +8,22 @@ import {
 } from 'react-native';
 import { Link } from 'react-router-native';
 import type { RouterType } from '../routes/routes.types';
+import {
+  ArrayHelper,
+} from '../helpers';
+import type { ThemeType } from '../styles/theme';
+import { useTheme } from '../hooks';
 
-const styles = StyleSheet.create({
+const useStyles = (theme: ThemeType) => StyleSheet.create({
   container: {
-    marginBottom: 80,
+    backgroundColor: theme.backgroundColor,
+    flex: 1,
+  },
+  flatList: {
+    backgroundColor: theme.backgroundColor,
   },
   listItem: {
-    borderBottomColor: 'black',
+    borderBottomColor: theme.textColor,
     borderBottomWidth: 0.3,
     paddingVertical: 20,
     paddingHorizontal: 10,
@@ -23,6 +32,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     fontSize: 16,
     fontWeight: '400',
+    color: theme.textColor,
   },
 });
 
@@ -32,16 +42,18 @@ type SectionListProps = {
 
 export function SectionList(props: SectionListProps): React$Node {
   const { data } = props;
-
+  const { theme } = useTheme();
+  const styles = useStyles(theme);
+  const sortedData: RouterType = ArrayHelper.increasingSortWithKey(data, 'title');
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
-        data={data}
-        style={styles.container}
+        data={sortedData}
+        style={styles.flatList}
         renderItem={({ item }) => (
           <Link
             to={item.path}
-            underlayColor="rgba(0, 0, 0, 0.25)"
+            underlayColor={theme.underlayColor}
             style={styles.listItem}
           >
             <Text style={styles.listItemText}>

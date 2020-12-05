@@ -22,26 +22,25 @@ function App(): React$Node {
     <NativeRouter>
       <SafeAreaView style={styles.container}>
         <KeyboardAvoidingView style={styles.container} behavior="padding">
-          {routes.map((route) => (
-            <Route
-              key={route.id}
-              exact={route.exact}
-              path={route.path}
-              render={() => {
-                const ComponentWithRoutes = withRoutes(route.component);
-
-                return (
-                  <ThemeProvider>
+          <ThemeProvider>
+            {routes.map((route) => (
+              <Route
+                key={route.id}
+                exact={route.exact}
+                path={route.path}
+                render={() => {
+                  const ComponentWithRoutes = withRoutes(route.component);
+                  return (
                     <HeaderContainer>
                       <ComponentWithRoutes
                         routeId={route.id}
                       />
                     </HeaderContainer>
-                  </ThemeProvider>
-                );
-              }}
-            />
-          ))}
+                  );
+                }}
+              />
+            ))}
+          </ThemeProvider>
         </KeyboardAvoidingView>
       </SafeAreaView>
     </NativeRouter>

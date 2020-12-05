@@ -41,7 +41,7 @@ export function HeaderContainer(props: HeaderContainerProps): React$Node {
   const { goBack, location: { pathname } } = useHistory();
   const canGoBack = pathname !== modulesPath();
   const title = routes.find((route) => route.path === pathname)?.title;
-  const { theme, colorScheme } = useTheme();
+  const { theme } = useTheme();
   const styles = useStyles(theme);
 
   return (

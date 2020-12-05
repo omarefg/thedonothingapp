@@ -2,7 +2,7 @@
  * @flow
  */
 
-import * as React from 'react';
+import { type Context, createContext } from 'react';
 
 export type colorSchemeType = 'light' | 'dark'
 
@@ -11,7 +11,7 @@ type ThemeContextType = {
   colorScheme: colorSchemeType,
 }
 
-export const ThemeContext: React.Context<ThemeContextType> = React.createContext<ThemeContextType>({
+export const ThemeContext: Context<ThemeContextType> = createContext({
   setcolorScheme: () => {},
   colorScheme: 'light',
 });
