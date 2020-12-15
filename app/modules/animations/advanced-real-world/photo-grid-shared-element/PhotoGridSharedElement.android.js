@@ -13,8 +13,8 @@ import {
   StyleSheet,
   Image,
   Animated,
-  ScrollView,
   Pressable,
+  FlatList,
 } from 'react-native';
 
 import images from './assets/images';
@@ -93,15 +93,12 @@ export function AdvancedRealWorldPhotoGridSharedElement(): React$Node {
   };
 
   const handleClose = () => {
-    Animated.parallel([
-      Animated.timing(position.x, { toValue: measures.x, duration: 250, useNativeDriver: false }),
-      Animated.timing(position.y, { toValue: measures.y, duration: 250, useNativeDriver: false }),
-      Animated.timing(size.x, { toValue: measures.width, duration: 250, useNativeDriver: false }),
-      Animated.timing(size.y, { toValue: measures.height, duration: 250, useNativeDriver: false }),
-      Animated.timing(animation, { toValue: 0, duration: 250, useNativeDriver: true }),
-    ]).start(() => {
-      setActiveImage(null);
-    });
+    position.x.setValue(measures.x);
+    position.y.setValue(measures.y);
+    size.x.setValue(measures.width);
+    size.y.setValue(measures.height);
+    animation.setValue(0);
+    setActiveImage(null);
   };
 
   const animatedContentTranslate = animation.interpolate({
@@ -136,40 +133,38 @@ export function AdvancedRealWorldPhotoGridSharedElement(): React$Node {
   useEffect(() => {
     if (typeof activeIndex === 'number') {
       viewImage.current?.measure((tX, tY, tWidth, tHeight, tPageX, tPageY) => {
-        Animated.parallel([
-          Animated.spring(position.x, { toValue: tPageX, useNativeDriver: false }),
-          Animated.spring(position.y, { toValue: tPageY - 55, useNativeDriver: false }),
-          Animated.spring(size.x, { toValue: tWidth, useNativeDriver: false }),
-          Animated.spring(size.y, { toValue: tHeight, useNativeDriver: false }),
-          Animated.spring(animation, { toValue: 1, useNativeDriver: true }),
-        ]).start();
+        position.x.setValue(tPageX);
+        position.y.setValue(tPageY - 55);
+        size.x.setValue(tWidth);
+        size.y.setValue(tHeight);
+        animation.setValue(1);
       });
     }
   }, [activeIndex]);
 
   return (
     <View style={styles.container}>
-      <ScrollView style={styles.container}>
-        <View style={styles.grid}>
-          {images.map((src, index) => {
-            const style = index === activeIndex ? activeIndexStyle : undefined;
-            return (
-              <Pressable
-                key={index}
-                style={[styles.gridImageContainer]}
-                onPress={handleOpenImage(index)}
-              >
-                <Image
-                  source={src}
-                  resizeMode="cover"
-                  style={[styles.gridImage, style]}
-                  ref={(image) => { gridImages[index] = image; }}
-                />
-              </Pressable>
-            );
-          })}
-        </View>
-      </ScrollView>
+      <FlatList
+        numColumns={3}
+        data={images}
+        renderItem={({ item, index }) => {
+          const style = index === activeIndex ? activeIndexStyle : undefined;
+          return (
+            <Pressable
+              key={index}
+              style={[styles.gridImageContainer]}
+              onPress={handleOpenImage(index)}
+            >
+              <Image
+                source={item}
+                resizeMode="cover"
+                style={[styles.gridImage, style]}
+                ref={(image) => { gridImages[index] = image; }}
+              />
+            </Pressable>
+          );
+        }}
+      />
       <View
         style={StyleSheet.absoluteFill}
         pointerEvents={activeImage ? 'auto' : 'none'}
