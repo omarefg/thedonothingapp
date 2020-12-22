@@ -8,7 +8,8 @@ import {
 } from 'react-native';
 import { useHistory } from 'react-router-native';
 import { useTheme } from '../hooks';
-import routes, { modulesPath } from '../routes/routes';
+import routes from '../routes/routes';
+import { modulesPath } from '../routes/rootRoutes';
 import type { ThemeType } from '../styles/theme';
 
 const useStyles = (theme: ThemeType) => StyleSheet.create({

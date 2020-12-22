@@ -37,5 +37,10 @@ module.exports = {
     react: {
       version: '16.13.1',
     },
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.ios.js', '.android.js'],
+      },
+    },
   },
 };
