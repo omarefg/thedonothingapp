@@ -9,7 +9,7 @@ import {
   Animated,
   TouchableWithoutFeedback,
 } from 'react-native';
-import Heart from './components/Heart';
+import { Heart } from '../../../../components';
 
 const styles = StyleSheet.create({
   container: {

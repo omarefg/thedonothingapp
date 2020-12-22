@@ -2,14 +2,15 @@
 /**
  * @flow
  */
+
 import React from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
 
 type HeartProps = {
-  filled: boolean,
-  style: any,
-  ...any
-}
+    filled: boolean,
+    style: any,
+    ...any
+  }
 
 const styles = StyleSheet.create({
   heart: {
@@ -53,23 +54,20 @@ const styles = StyleSheet.create({
   },
 });
 
-const Heart = ({ filled, style, ...props }: HeartProps): React$Node => {
-  const fillStyle = filled ? styles.filledHeart : styles.empty;
-
-  const CenterNonFilled = () => (
+export const Heart = ({ filled, style, ...props }: HeartProps): React$Node => {
+  const centerNonFilled = (
     <View style={[StyleSheet.absoluteFill, styles.fit]}>
       <View style={[styles.leftHeart, styles.heartShape, styles.emptyFill]} />
       <View style={[styles.rightHeart, styles.heartShape, styles.emptyFill]} />
     </View>
   );
+  const fillStyle = filled ? styles.filledHeart : styles.empty;
 
   return (
     <Animated.View {...props} style={[styles.heart, style]}>
       <View style={[styles.leftHeart, styles.heartShape, fillStyle]} />
       <View style={[styles.rightHeart, styles.heartShape, fillStyle]} />
-      {!filled && <CenterNonFilled />}
+      {!filled && centerNonFilled}
     </Animated.View>
   );
 };
-
-export default Heart;
