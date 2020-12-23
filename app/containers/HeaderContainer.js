@@ -4,7 +4,7 @@
 
 import React from 'react';
 import {
-  Button, StatusBar, StyleSheet, Text, View,
+  Button, SafeAreaView, StatusBar, StyleSheet, Text, View,
 } from 'react-native';
 import { useHistory } from 'react-router-native';
 import { useTheme } from '../hooks';
@@ -13,6 +13,10 @@ import { modulesPath } from '../routes/rootRoutes';
 import type { ThemeType } from '../styles/theme';
 
 const useStyles = (theme: ThemeType) => StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: theme.backgroundColor,
+  },
   container: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -42,14 +46,15 @@ export function HeaderContainer(props: HeaderContainerProps): React$Node {
   const { goBack, location: { pathname } } = useHistory();
   const canGoBack = pathname !== modulesPath();
   const title = routes.find((route) => route.path === pathname)?.title;
-  const { theme } = useTheme();
+  const { theme, colorScheme } = useTheme();
   const styles = useStyles(theme);
+  const getBarStyle = () => `${colorScheme === 'dark' ? 'light' : 'dark'}-content`;
 
   return (
-    <>
+    <SafeAreaView style={styles.safeArea}>
       <StatusBar
         backgroundColor="transparent"
-        barStyle="dark-content"
+        barStyle={getBarStyle()}
       />
       <View style={styles.container}>
         <View style={styles.corner}>
@@ -64,6 +69,6 @@ export function HeaderContainer(props: HeaderContainerProps): React$Node {
         <View style={styles.corner} />
       </View>
       {children}
-    </>
+    </SafeAreaView>
   );
 }

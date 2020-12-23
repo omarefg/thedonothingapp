@@ -35,12 +35,12 @@ android_library(
 
 android_build_config(
     name = "build_config",
-    package = "com.thedonothingapp",
+    package = "com.omarefg.thedonothingapp",
 )
 
 android_resource(
     name = "res",
-    package = "com.thedonothingapp",
+    package = "com.omarefg.thedonothingapp",
     res = "src/main/res",
 )
 

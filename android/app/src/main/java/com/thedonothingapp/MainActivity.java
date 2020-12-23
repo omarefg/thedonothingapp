@@ -1,4 +1,4 @@
-package com.thedonothingapp;
+package com.omarefg.thedonothingapp;
 
 import com.facebook.react.ReactActivity;
 

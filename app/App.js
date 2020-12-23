@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { KeyboardAvoidingView, SafeAreaView, StyleSheet } from 'react-native';
+import { KeyboardAvoidingView, StyleSheet } from 'react-native';
 
 import { NativeRouter, Route } from 'react-router-native';
 import { ThemeProvider } from './providers';
@@ -20,29 +20,27 @@ const styles = StyleSheet.create({
 function App(): React$Node {
   return (
     <NativeRouter>
-      <SafeAreaView style={styles.container}>
-        <KeyboardAvoidingView style={styles.container} behavior="padding">
-          <ThemeProvider>
-            {routes.map((route) => (
-              <Route
-                key={route.id}
-                exact={route.exact}
-                path={route.path}
-                render={() => {
-                  const ComponentWithRoutes = withRoutes(route.component);
-                  return (
-                    <HeaderContainer>
-                      <ComponentWithRoutes
-                        routeId={route.id}
-                      />
-                    </HeaderContainer>
-                  );
-                }}
-              />
-            ))}
-          </ThemeProvider>
-        </KeyboardAvoidingView>
-      </SafeAreaView>
+      <KeyboardAvoidingView style={styles.container} behavior="padding">
+        <ThemeProvider>
+          {routes.map((route) => (
+            <Route
+              key={route.id}
+              exact={route.exact}
+              path={route.path}
+              render={() => {
+                const ComponentWithRoutes = withRoutes(route.component);
+                return (
+                  <HeaderContainer>
+                    <ComponentWithRoutes
+                      routeId={route.id}
+                    />
+                  </HeaderContainer>
+                );
+              }}
+            />
+          ))}
+        </ThemeProvider>
+      </KeyboardAvoidingView>
     </NativeRouter>
   );
 }
