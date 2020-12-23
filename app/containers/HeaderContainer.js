@@ -4,7 +4,12 @@
 
 import React from 'react';
 import {
-  Button, SafeAreaView, StatusBar, StyleSheet, Text, View,
+  Button,
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
 } from 'react-native';
 import { useHistory } from 'react-router-native';
 import { useTheme } from '../hooks';
@@ -53,7 +58,7 @@ export function HeaderContainer(props: HeaderContainerProps): React$Node {
   return (
     <SafeAreaView style={styles.safeArea}>
       <StatusBar
-        backgroundColor="transparent"
+        backgroundColor={theme.backgroundColor}
         barStyle={getBarStyle()}
       />
       <View style={styles.container}>
@@ -65,7 +70,12 @@ export function HeaderContainer(props: HeaderContainerProps): React$Node {
             />
           )}
         </View>
-        <Text style={styles.title}>{title}</Text>
+        <Text
+          numberOfLines={1}
+          style={styles.title}
+        >
+          {title}
+        </Text>
         <View style={styles.corner} />
       </View>
       {children}

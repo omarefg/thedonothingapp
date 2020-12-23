@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
 function App(): React$Node {
   return (
     <NativeRouter>
-      <KeyboardAvoidingView style={styles.container} behavior="padding">
+      <KeyboardAvoidingView style={styles.container} behavior="height">
         <ThemeProvider>
           {routes.map((route) => (
             <Route
