@@ -1,6 +1,6 @@
 # The do nothing app
 
-Nothing to see here, just a React Native app to use as a lab, test and understand different things about React Native.<br/>Every course or topic will have it module.
+Just a React Native app to use as a lab, test and understand different things about React Native.<br/>Every course or topic will have it module.
 
 ## Modules
 
